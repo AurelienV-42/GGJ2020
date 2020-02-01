@@ -8,8 +8,8 @@ public class PlayerControl : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
-    public float jumpSpeed = 15f;
-    public float speed = 5f;
+    public float jumpSpeed = 5f;
+    public float speed = 4f;
     private bool onGround;
 
     void Start()
