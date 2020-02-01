@@ -1,24 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-guid: eccad7aa33d15ad46969b844f4e7c1ef
-=======
-guid: 1285dfd9741c4944fa9512dec14a6fe5
->>>>>>> master
-=======
-guid: 06107de4cc878f740ad5dc7be549b608
->>>>>>> Stashed changes
+guid: 4ae28d4cfc9c5884e99ae26045ee5d9c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
     mipMapMode: 0
-<<<<<<< Updated upstream
     enableMipMap: 1
-=======
-    enableMipMap: 0
->>>>>>> Stashed changes
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -46,7 +34,6 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-<<<<<<< Updated upstream
     wrapU: -1
     wrapV: -1
     wrapW: -1
@@ -65,26 +52,6 @@ TextureImporter:
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
-=======
-    wrapU: 1
-    wrapV: 1
-    wrapW: -1
-  nPOTScale: 0
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 1
-  spriteExtrude: 0
-  spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
-  alphaIsTransparency: 1
-  spriteTessellationDetail: -1
-  textureType: 8
->>>>>>> Stashed changes
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -103,56 +70,13 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< Updated upstream
-=======
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
->>>>>>> Stashed changes
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< Updated upstream
     spriteID: 
-=======
-    spriteID: 5e97eb03825dee720800000000000000
->>>>>>> Stashed changes
     internalID: 0
     vertices: []
     indices: 
