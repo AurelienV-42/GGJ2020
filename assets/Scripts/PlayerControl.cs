@@ -7,6 +7,9 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rb;
     private bool onGround;
     private float x_movement;
+    private bool isJumpRepaired = false;
+    private bool isSwimRepaired = false;
+    private bool isHookRepaired = false;
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -18,6 +21,7 @@ public class PlayerControl : MonoBehaviour
 =======
     private double distToGround;
 >>>>>>> Stashed changes
+
 
     void Start()
     {
@@ -35,11 +39,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jump();
+        manageTools();
         
         // WITH A FORCE 
         x_movement = Input.GetAxis("Horizontal");
-
         
         if (rb.velocity.magnitude < max_speed)
         {
@@ -56,10 +59,17 @@ public class PlayerControl : MonoBehaviour
         */
 <<<<<<< Updated upstream
     }
-    private void jump()
-    {
-        onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
+    private void manageTools()
+    {
+        //JUMP
+        if (isJumpRepaired) {
+            onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+            if (onGround && Input.GetKey(KeyCode.UpArrow))
+                rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        }
+
+<<<<<<< HEAD
         if (Input.GetKey(KeyCode.UpArrow) && onGround)
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
     }
@@ -73,5 +83,16 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
     }
 >>>>>>> Stashed changes
+=======
+        //SWIM
+        if (isSwimRepaired) {
+>>>>>>> master
 
+        }
+
+        //HOOK
+        if (isHookRepaired) {
+
+        }
+    }
 }
