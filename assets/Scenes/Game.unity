@@ -450,7 +450,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: Menu
 --- !u!222 &150500306
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 589827299}
   - component: {fileID: 589827298}
   m_Layer: 5
-  m_Name: Options
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,7 +540,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 589827299}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1581786866}
+        m_MethodName: GoToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &589827299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +819,7 @@ GameObject:
   - component: {fileID: 838597423}
   - component: {fileID: 838597422}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,7 +887,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 838597423}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1581786866}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &838597423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,7 +1126,7 @@ GameObject:
   - component: {fileID: 929932400}
   - component: {fileID: 929932402}
   m_Layer: 9
-  m_Name: character
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1235,14 +1257,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e102c29bcc0d4643afce5e2d1688384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 929932400}
   groundCheck: {fileID: 1020191161}
   groundCheckRadius: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   jumpSpeed: 14
-  speed: 7
+  max_speed: 4
+  movement_scalar: 2
 --- !u!1 &1020191160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1363,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Menu
+  m_Text: Quit
 --- !u!222 &1300381641
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28366,6 +28388,7 @@ GameObject:
   - component: {fileID: 1581786863}
   - component: {fileID: 1581786865}
   - component: {fileID: 1581786864}
+  - component: {fileID: 1581786866}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -28431,6 +28454,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581786862}
   m_CullTransparentMesh: 0
+--- !u!114 &1581786866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581786862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f911d3b1348a249a19db5b3bd7946a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629416900
 GameObject:
   m_ObjectHideFlags: 0
