@@ -60,6 +60,7 @@ public class PlayerControl : MonoBehaviour
 <<<<<<< Updated upstream
     }
 
+    private void breakBlock()
     private void manageTools()
     {
         //JUMP
