@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rb;
     private bool onGround;
     private bool onBreakable;
+    private bool inLava;
     private float x_movement;
     private float groundCheckRadius = 0f;
     private bool isJumpRepaired = true;
@@ -19,9 +20,12 @@ public class PlayerControl : MonoBehaviour
     public Transform rightCheck;
     public LayerMask whatIsGround;
     public LayerMask whatIsBreakable;
+    public LayerMask whatIsLava;
+    public LayerMask whatIsWater;
+    public LayerMask whatIsHookable;
     public float jumpForce = 8f;
     public float speed = 4f;
-    public Tilemap tileMap; 
+    public Tilemap breakableTileMap;
 
 
     void Start()
@@ -32,7 +36,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        breakBlock();
+        manageCollision();
         manageTools();
 
         // WITH POSITION
@@ -61,12 +65,17 @@ public class PlayerControl : MonoBehaviour
         */
     }
 
-    private void breakBlock()
+    private void manageCollision()
     {
         onBreakable = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsBreakable);
         if (onBreakable)
         {
-            tileMap.SetTile(tileMap.WorldToCell(groundCheck.position), null);
+            breakableTileMap.SetTile(breakableTileMap.WorldToCell(groundCheck.position), null);
+        }
+        inLava = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsLava);
+        if (inLava)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
 
