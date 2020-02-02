@@ -5,13 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private float delay = 1f;
+
     public void PlayGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(ChangeScene());
     }
 
     public void QuitGame ()
     {
         Application.Quit();
+    }
+
+    IEnumerator ChangeScene()
+    {
+        float elapsedTime = 0;
+        float currentVolume = AudioListener.volume;
+
+        while (elapsedTime < delay)
+        {
+            elapsedTime += Time.deltaTime;
+            AudioListener.volume = Mathf.Lerp(currentVolume, 0, elapsedTime / delay);
+            yield return null;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
