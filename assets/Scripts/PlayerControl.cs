@@ -46,6 +46,7 @@ public class PlayerControl : MonoBehaviour
             charac_anim.SetBool("run_left", true);
             charac_anim.SetBool("run_right", false);
             charac_anim.SetBool("idle", false);
+            charac_anim.SetBool("fly", false);
 
         }
         else if (Input.GetAxis("Horizontal") > 0)
@@ -53,13 +54,19 @@ public class PlayerControl : MonoBehaviour
             charac_anim.SetBool("run_right", true);
             charac_anim.SetBool("run_left", false);
             charac_anim.SetBool("idle", false);
-
+            charac_anim.SetBool("fly", false);
         }
         else
         {
-            charac_anim.SetBool("idle", true);
+            charac_anim.SetBool("fly", true);
+            charac_anim.SetBool("idle", false);
             charac_anim.SetBool("run_left", false);
             charac_anim.SetBool("run_right", false);
+            if (onGround || onBreakable)
+            {
+                charac_anim.SetBool("idle", true);
+                charac_anim.SetBool("fly", false);
+            }
         }
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * speed;
