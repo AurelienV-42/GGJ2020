@@ -22,7 +22,7 @@ public class ArmDirection : MonoBehaviour
             if (hooks.GetTile(position) != null)
             {
                 hooksList.Add(new Vector2(position.x, position.y));
-                Debug.Log(position);
+                // Debug.Log(position);
             }
 
         }
@@ -44,7 +44,7 @@ public class ArmDirection : MonoBehaviour
         mousePosWorldToCharacter.x = ((rb.position.x - mousePosWorld.x) < 0 ? mousePosWorld.x - Mathf.Abs((rb.position.x - mousePosWorld.x) * 2) : mousePosWorld.x + Mathf.Abs((rb.position.x - mousePosWorld.x) * 2));
         mousePosWorldToCharacter.y = ((rb.position.y - mousePosWorld.y) < 0 ? mousePosWorld.y - Mathf.Abs((rb.position.y - mousePosWorld.y) * 2) : mousePosWorld.y + Mathf.Abs((rb.position.y - mousePosWorld.y) * 2));
 
-        Debug.DrawLine(rb.position, new Vector3(mousePosWorldToCharacter.x, mousePosWorldToCharacter.y, mousePosWorld.z), Color.white, Time.deltaTime);
+        // Debug.DrawLine(rb.position, new Vector3(mousePosWorldToCharacter.x, mousePosWorldToCharacter.y, mousePosWorld.z), Color.white, Time.deltaTime);
 
         snapToNearestHook(mousePosWorldToCharacter);
     }
@@ -63,7 +63,7 @@ public class ArmDirection : MonoBehaviour
             }
         }
 
-        Debug.Log("Closest to position " + mousePos + " = " + bestTarget);
+       // Debug.Log("Closest to position " + mousePos + " = " + bestTarget);
         
         foreach(Vector2 hook in hooksList)
         {

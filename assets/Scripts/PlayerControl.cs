@@ -6,7 +6,9 @@ public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool onGround;
+    private bool onBreakable;
     private float x_movement;
+    private float groundCheckRadius = 0f;
     private bool isJumpRepaired = true;
     private bool isSwimRepaired = false;
     private bool isHookRepaired = false;
@@ -15,7 +17,6 @@ public class PlayerControl : MonoBehaviour
     public Transform groundCheck;
     public Transform leftCheck;
     public Transform rightCheck;
-    public float groundCheckRadius;
     public LayerMask whatIsGround;
     public LayerMask whatIsBreakable;
     public float jumpForce = 8f;
@@ -31,8 +32,8 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        manageTools();
         breakBlock();
+        manageTools();
 
         // WITH POSITION
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
@@ -62,8 +63,11 @@ public class PlayerControl : MonoBehaviour
 
     private void breakBlock()
     {
-        /*if (Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsBreakable))
-            to_break.gameObject.SetActive(false);*/
+        onBreakable = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsBreakable);
+        if (onBreakable)
+        {
+            tileMap.SetTile(tileMap.WorldToCell(groundCheck.position), null);
+        }
     }
 
     private void manageTools()
@@ -72,7 +76,7 @@ public class PlayerControl : MonoBehaviour
         if (isJumpRepaired)
         {
             onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-            if (onGround && Input.GetKey(KeyCode.UpArrow))
+            if ((onGround || onBreakable) && Input.GetKey(KeyCode.UpArrow))
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 

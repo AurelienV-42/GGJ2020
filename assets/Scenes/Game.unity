@@ -2158,7 +2158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929932397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.13, y: 1.64, z: 0}
+  m_LocalPosition: {x: -32.3, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1020191161}
@@ -2227,20 +2227,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e102c29bcc0d4643afce5e2d1688384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topCheck: {fileID: 0}
+  topCheck: {fileID: 1195993759}
   groundCheck: {fileID: 1020191161}
-  leftCheck: {fileID: 0}
-  rightCheck: {fileID: 0}
-  groundCheckRadius: 0
+  leftCheck: {fileID: 1049548715}
+  rightCheck: {fileID: 1796804374}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   whatIsBreakable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   jumpForce: 8
   speed: 4
-  tileMap: {fileID: 0}
+  tileMap: {fileID: 2125910733}
 --- !u!114 &929932403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29565,7 +29564,7 @@ GameObject:
   - component: {fileID: 2125910733}
   - component: {fileID: 2125910732}
   - component: {fileID: 2125910731}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BreakableTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
