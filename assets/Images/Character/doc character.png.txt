@@ -1,0 +1,4 @@
+
+Running Left (animation)
+Idle Left (no arm) - Idle Front - Idle Right (no arm)
+Running Right (animation)

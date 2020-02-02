@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Tilemaps;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     public LayerMask whatIsBreakable;
     public float jumpForce = 8f;
     public float speed = 4f;
+    public Tilemap tileMap; 
 
 
     void Start()
@@ -61,8 +62,10 @@ public class PlayerControl : MonoBehaviour
 
     private void breakBlock()
     {
-        /*Physics2D.OverlapCircle(rightCheck.position, groundCheckRadius, whatIsBreakable).TryGetComponent<GameObject>().enabled = false;*/
+        /*if (Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsBreakable))
+            to_break.gameObject.SetActive(false);*/
     }
+
     private void manageTools()
     {
         //JUMP
