@@ -30,6 +30,8 @@ public class PlayerControl : MonoBehaviour
     public Tilemap breakableTileMap;
     public Animator charac_anim;
     public InGameMenu panel;
+    public GameObject jumpEnabled;
+    public GameObject hookEnabled;
 
     void Start()
     {
@@ -119,6 +121,7 @@ public class PlayerControl : MonoBehaviour
             onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
             if ((onGround || onBreakable) && Input.GetKey(KeyCode.UpArrow))
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpEnabled.SetActive(true);
         }
 
         //SWIM
@@ -130,7 +133,7 @@ public class PlayerControl : MonoBehaviour
         //HOOK
         if (isHookRepaired > 0)
         {
-
+            hookEnabled.SetActive(true);
         }
     }
 }
