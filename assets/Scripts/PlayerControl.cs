@@ -24,7 +24,7 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
