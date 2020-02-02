@@ -7,9 +7,10 @@ public class ArmDirection : MonoBehaviour
 {
     private Vector3 mousePos;
     private Camera cam;
-    public Rigidbody2D rb;
-    public Tilemap hooks;
+    private Rigidbody2D rb;
     private List<Vector2> hooksList = new List<Vector2>();
+
+    public Tilemap hooks;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class ArmDirection : MonoBehaviour
             }
 
         }
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -60,6 +62,10 @@ public class ArmDirection : MonoBehaviour
             {
                 bestTarget = hook;
                 distanceToCurrentBestTarget = distanceToCurrentHook;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    rb.AddForce(new Vector3((bestTarget.x - rb.position.x) * 100, (bestTarget.y - rb.position.y) * 100, 0));
+                }
             }
         }
 
@@ -81,5 +87,7 @@ public class ArmDirection : MonoBehaviour
 
         // Set the colour.
         hooks.SetColor(bestTargetPosition, Color.white);
+
+
     }
 }
