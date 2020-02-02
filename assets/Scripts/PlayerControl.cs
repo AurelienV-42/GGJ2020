@@ -27,7 +27,7 @@ public class PlayerControl : MonoBehaviour
     public float speed = 4f;
     public Tilemap breakableTileMap;
     public Animator charac_anim;
-
+    public InGameMenu panel;
 
     void Start()
     {
@@ -71,7 +71,11 @@ public class PlayerControl : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * speed;
 
-
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            panel.gameObject.SetActive(true);
+            panel.PauseGame();
+        }
         // WITH A FORCE 
         /*
         x_movement = Input.GetAxis("Horizontal");
