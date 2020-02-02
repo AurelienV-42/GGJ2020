@@ -133,7 +133,7 @@ public class PlayerControl : MonoBehaviour
         //HOOK
         if (isHookRepaired > 0)
         {
-            hookEnabled.SetActive(false);
+            hookEnabled.SetActive(true);
         }
     }
 }
