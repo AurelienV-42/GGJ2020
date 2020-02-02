@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rb;
     private bool onGround;
     private bool onBreakable;
-    private bool inLava;
+    private bool onLava;
     private float x_movement;
     private float groundCheckRadius = 0f;
     private bool isJumpRepaired = true;
@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce = 8f;
     public float speed = 4f;
     public Tilemap breakableTileMap;
+    public Animator charac_anim;
 
 
     void Start()
@@ -40,6 +41,26 @@ public class PlayerControl : MonoBehaviour
         manageTools();
 
         // WITH POSITION
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            charac_anim.SetBool("run_left", true);
+            charac_anim.SetBool("run_right", false);
+            charac_anim.SetBool("idle", false);
+
+        }
+        else if (Input.GetAxis("Horizontal") > 0)
+        {
+            charac_anim.SetBool("run_right", true);
+            charac_anim.SetBool("run_left", false);
+            charac_anim.SetBool("idle", false);
+
+        }
+        else
+        {
+            charac_anim.SetBool("idle", true);
+            charac_anim.SetBool("run_left", false);
+            charac_anim.SetBool("run_right", false);
+        }
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * speed;
 
@@ -69,14 +90,10 @@ public class PlayerControl : MonoBehaviour
     {
         onBreakable = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsBreakable);
         if (onBreakable)
-        {
             breakableTileMap.SetTile(breakableTileMap.WorldToCell(groundCheck.position), null);
-        }
-        inLava = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsLava);
-        if (inLava)
-        {
+        onLava = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsLava);
+        if (onLava)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
     }
 
     private void manageTools()
