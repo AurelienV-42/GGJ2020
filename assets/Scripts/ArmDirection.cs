@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -56,7 +56,7 @@ public class ArmDirection : MonoBehaviour
         foreach (Vector2 hook in hooksList)
         {
             var distanceToCurrentHook = Vector2.Distance(hook, mousePos);
-            if (distanceToCurrentHook < distanceToCurrentBestTarget)
+            if (distanceToCurrentHook < 2 && distanceToCurrentHook < distanceToCurrentBestTarget)
             {
                 bestTarget = hook;
                 distanceToCurrentBestTarget = distanceToCurrentHook;
