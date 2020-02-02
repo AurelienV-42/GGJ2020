@@ -7,6 +7,11 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private float delay = 1f;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void PlayGame ()
     {
         StartCoroutine(ChangeScene());
