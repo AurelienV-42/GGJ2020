@@ -10,10 +10,10 @@ public class PlayerControl : MonoBehaviour
     private bool onLava;
     private float x_movement;
     private float groundCheckRadius = 0f;
-    private bool isJumpRepaired = true;
-    private bool isSwimRepaired = false;
-    private bool isHookRepaired = false;
+    private int isJumpRepaired = 0;
+    private int isSwimRepaired = 0;
 
+    public int isHookRepaired = 0;
     public Transform topCheck;
     public Transform groundCheck;
     public Transform leftCheck;
@@ -23,6 +23,8 @@ public class PlayerControl : MonoBehaviour
     public LayerMask whatIsLava;
     public LayerMask whatIsWater;
     public LayerMask whatIsHookable;
+    public LayerMask whatIsChestJump;
+    public LayerMask whatIsChestHook;
     public float jumpForce = 8f;
     public float speed = 4f;
     public Tilemap breakableTileMap;
@@ -105,12 +107,14 @@ public class PlayerControl : MonoBehaviour
         onLava = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsLava);
         if (onLava)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        isJumpRepaired += (Physics2D.OverlapCircle(rightCheck.position, groundCheckRadius, whatIsChestJump) || Physics2D.OverlapCircle(leftCheck.position, groundCheckRadius, whatIsChestJump) || Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsChestJump)) ? 1 : 0;
+        isHookRepaired += (Physics2D.OverlapCircle(rightCheck.position, groundCheckRadius, whatIsChestHook) || Physics2D.OverlapCircle(leftCheck.position, groundCheckRadius, whatIsChestHook) || Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsChestHook)) ? 1 : 0;
     }
 
     private void manageTools()
     {
         //JUMP
-        if (isJumpRepaired)
+        if (isJumpRepaired > 0)
         {
             onGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
             if ((onGround || onBreakable) && Input.GetKey(KeyCode.UpArrow))
@@ -118,13 +122,13 @@ public class PlayerControl : MonoBehaviour
         }
 
         //SWIM
-        if (isSwimRepaired)
+        if (isSwimRepaired > 0)
         {
 
         }
 
         //HOOK
-        if (isHookRepaired)
+        if (isHookRepaired > 0)
         {
 
         }

@@ -9,6 +9,7 @@ public class ArmDirection : MonoBehaviour
     private Camera cam;
     private Rigidbody2D rb;
     private List<Vector2> hooksList = new List<Vector2>();
+    private PlayerControl control;
 
     public Tilemap hooks;
 
@@ -28,6 +29,7 @@ public class ArmDirection : MonoBehaviour
 
         }
         rb = gameObject.GetComponent<Rigidbody2D>();
+        control = gameObject.GetComponent<PlayerControl>();
     }
 
     // Update is called once per frame
@@ -62,7 +64,7 @@ public class ArmDirection : MonoBehaviour
             {
                 bestTarget = hook;
                 distanceToCurrentBestTarget = distanceToCurrentHook;
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && control.isHookRepaired > 0)
                 {
                     rb.AddForce(new Vector3((bestTarget.x - rb.position.x) * 100, (bestTarget.y - rb.position.y) * 100, 0));
                 }
